@@ -1,5 +1,14 @@
 <template>
     <div id="test">{{text}}</div>
 </template>
-
+<script>
+export default {
+    data(){
+            return {
+                text:'this is in app.vue'
+            }
+        }
+}
+    
+</script>
 
