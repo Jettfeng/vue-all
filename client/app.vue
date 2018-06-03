@@ -9,19 +9,19 @@
 <script>
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue' 
-console.log(Header.__docs)
+import Todo from './views/todo/todo.vue'
+
 export default {
-    data(){
-        return {
-            
-        }
-    },
-    components:{
-        Header,
-        Footer,
-        Todo
+  data () {
+    return {
+
     }
+  },
+  components: {
+    Header,
+    Footer,
+    Todo
+  }
 }
 </script>
 <style lang="stylus" scoped>

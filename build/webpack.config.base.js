@@ -12,6 +12,12 @@ const config = {
     },
     module:{
         rules:[
+            // {
+            //     test:/\.(vue|js|jsx)$/,//eslit检测
+            //     loader:'eslint-loader',
+            //     exclude:'/node_modules/',
+            //     enforce:'pre'//对这几种文件进行预处理（在各个文件相应loader处理文件之前进行预处理）
+            // },
             {
                 test:/\.vue$/,
                 use:[
