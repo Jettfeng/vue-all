@@ -1,9 +1,9 @@
 <template>
-    <header class="main-header">
+    <header :class="$style.mainHeader">
         <h1>JTodo</h1>
     </header>
 </template>
-<style lang="stylus" scoped>
+<style lang="stylus" scoped module>
 .main-header {
   text-align: center;
 
@@ -16,6 +16,3 @@
 }
 </style>
 
-<docs>
-  #123=456
-</docs>

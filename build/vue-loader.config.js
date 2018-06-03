@@ -8,8 +8,5 @@ module.exports = (isDev) => {
         camelCase: true
       },
       // hotReload: false, // 根据环境变量生成，热重载
-      loaders:{//给不通的模块设置loader
-          'docs':docsLoaders
-      }
     }
   }
