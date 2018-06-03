@@ -1,37 +1,19 @@
-<h3>todo4-1:webpack配置css单独分离打包<h3>
-<p>安装插件：npm install extract-text-webpack-plugin</p>
-<p>使用：</p>
-<p>1、引入：const ExtractPlugin = require('extract-text-webpack-plugin')</p>
-<p>2、配置开发环境与正式环境</p>
-<p>开发环境</p>
-config.module.rules.push({
-        test:/\.styl$/,
-        use:[
-            'style-loader',
-            'css-loader',
-            {
-                loader:'postcss-loader',
-                options:{
-                    sourceMap:true
-                }
-            },
-            'stylus-loader'
-        ]
-    })
-<p>正式环境：</p>
- config.module.rules.push({
-        test:/\.styl$/,
-        use:ExtractPlugin.extract({
-            fallback:'style-loader',
-             use:[
-                'css-loader',
-                {
-                    loader:'postcss-loader',
-                    options:{
-                        sourceMap:true
-                    }
-                },
-                'stylus-loader'
-            ]
-        })
-    })
+<h3>todo4-4:webpack区分打包类库及hash优化</h3>
+<p>区分打包类库</p>
+<p>入口配置</p>
+<p> config.entry = {</p>
+<p> app:path.join(__dirname,'src/index.js'),</p>
+<p> vendor:['vue']</p>
+<p>}</p>
+<p>插件配置</p>
+<p>new webpack.optimize.CommonsChunkPlugin({</p>
+<p>  name:'vendor'</p>
+<p>})</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+       
+       
+    
