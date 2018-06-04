@@ -53,7 +53,7 @@ if(isDev){//开发环境
         devServer,
         plugins:defaultPlugins.concat([
                 new webpack.HotModuleReplacementPlugin(),//启动webpackhotmodule功能
-                new webpack.NoEmitOnErrorsPlugin(),//
+               // new webpack.NoEmitOnErrorsPlugin(),//
                 new webpack.DefinePlugin({//
                     'process.env':{
                         NODE_ENV:isDev ? '"development"' : '"production"'
@@ -66,7 +66,7 @@ if(isDev){//开发环境
     config = merge(baseConfig,{
         entry: {
             app:path.join(__dirname,'../client/index.js'),
-            vendor:['vue']
+            // vendor:['vue']
         },
         output:{
             filename:'[name].[chunkhash:8].js'
@@ -91,14 +91,21 @@ if(isDev){//开发环境
                 }
             ]
         },
+        optimization:{//webpack4,类似webpack3的CommonsChunkPlugin
+            splitChunks:{
+                chunks:'all'
+            },
+            runtimeChunk:true
+        },
         plugins:[
             new ExtractPlugin('style.[contentHash:8].css'),
-            new webpack.optimize.CommonsChunkPlugin({
-                name:'vendor'//提取vue类库
-            }),
-            new webpack.optimize.CommonsChunkPlugin({
-                name:'runtime'//分离
-            })
+            // new webpack.optimize.CommonsChunkPlugin({
+            //     name:'vendor'//提取vue类库
+            // }),
+            // new webpack.optimize.CommonsChunkPlugin({
+            //     name:'runtime'//分离
+            // })
+          //  CommonsChunkPlugin在webpack4中已经废弃
         ]
     })
 }

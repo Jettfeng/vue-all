@@ -4,6 +4,7 @@ const createVueLoaderOptions = require('./vue-loader.config')
 const isDev = process.env.NODE_ENV == 'development'//判断是否是开发环境
 
 const config = {
+    mode:process.env.NODE_ENV || 'production',//webpack4，只接收development || production
     target:'web',
     entry:path.join(__dirname,'../client/index.js'),
     output:{
