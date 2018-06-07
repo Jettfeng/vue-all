@@ -1,4 +1,4 @@
-<h3>3-10:Vue的组件之高级属性</h3
+<h3>3-11:Vue的组件之render function</h3
 
 
        
