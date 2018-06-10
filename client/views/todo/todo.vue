@@ -8,6 +8,7 @@
         <tabs :filter='filter' :todos="todos" 
         @toggle="toggleFilter" 
         @clearAll="clearAllCompleted"></tabs>
+        <!-- <router-view></router-view> -->
     </section>
 </template>
 
@@ -16,11 +17,16 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default{
+  props:['id'],
   data () {
     return {
       todos: [],
       filter: 'all'
     }
+  },
+  mounted(){
+    console.log(this.$route)
+    console.log(this.id)
   },
   computed: {
     filteredTodos () {

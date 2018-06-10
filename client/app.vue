@@ -2,7 +2,14 @@
     <div id="app">
         <div id="cover"></div>
         <Header></Header>
-        <todo></todo>
+        <!-- <router-link to="/app">app</router-link>
+        <router-link to="/login">login</router-link> -->
+        <router-link :to="{name:'app'}">app</router-link>
+        <router-link :to="{name:'login'}">login</router-link>
+        <!-- <todo></todo> -->
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
         <Footer></Footer>
     </div>
 </template>
@@ -16,6 +23,9 @@ export default {
     return {
 
     }
+  },
+  mounted(){
+  
   },
   components: {
     Header,

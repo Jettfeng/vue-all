@@ -18,10 +18,13 @@ const defaultPlugins = [
 
 const devServer = {
     port:8000,//启动端口
-    host:'192.168.0.107',//
+    host:'127.0.0.1',//
     overlay:{//将错误显示在网页上
         errors:true
     },
+    historyApiFallback: {
+        index: '/public/index.html'//如果没有该配置，在history路由模式下，刷新面会报404，这里的配置与output有关系
+      },
     open:true,//自动打开页面
     hot:true//单页应用修改数据时只重新渲染当组件
 }
