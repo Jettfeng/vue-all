@@ -1,8 +1,4 @@
-<h3>4-1:Vue-router之集成</h3
-<h3>4-2:Vue-router之配置</h3
-<h3>4-3:Vue-router之路由参数传递</h3
-
-
-       
-       
+<h3>4-4:Vue-router之导航守卫</h3   
+<p>component:()=>import('../views/login/login.vue')</p>
+<p>使用import需安装插件： npm i babel-plugin-syntax-dynamic-import -D</p>  
     
