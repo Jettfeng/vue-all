@@ -8,9 +8,10 @@
         <router-link :to="{name:'login'}">login</router-link>
         <!-- <todo></todo> -->
         <transition name="fade">
-          <router-view></router-view>
+        <router-view/>
         </transition>
         <Footer></Footer>
+        <!-- <router-view name="a"></router-view> -->
     </div>
 </template>
 <script>
