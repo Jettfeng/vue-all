@@ -1,3 +1,25 @@
-<h3>4-5:Vuex之集成</h3   
-<p>安装vuex：npm install vuex -S</p>
-<p>使用import需安装插件： npm i babel-plugin-syntax-dynamic-import -D</p>  
+<h3>4-6:Vuex之state和getters</h3   
+<p>...mapState(['count']),...语法不支持，需安装插件</p>
+<p>npm i babel-preset-stage-1 -D</p>  
+<p>.babelrc文件里面配置"stage-1"</p>
+<p>{</p>
+<p> "presets":[</p>
+<p>"env",</p>
+<p>"stage-1"</p>
+<p> ],</p>
+<p> "plugins":[</p>
+<p> "transform-vue-jsx",</p>
+<p>"syntax-dynamic-import"</p>
+<p>]</p>
+<p>}</p>
+<p></p>
+
+   
+        
+        
+   
+   
+       
+        
+    
+

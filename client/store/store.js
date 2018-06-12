@@ -1,17 +1,13 @@
 import Vuex from 'vuex'
-import Vue from 'vue'
-Vue.use(Vuex)
+import defaultState from './state/state'
+import mutations from './mutations/mutations'
+import getters from './getters/getters'
 
 export default ()=>{
     return new Vuex.Store({
-        state:{
-            count:0
-        },
-        mutations:{
-            updatedCount(state,num){
-                state.count = num
-            }
-        }
+        state:defaultState,
+        mutations,
+        getters
     })
 }
 
