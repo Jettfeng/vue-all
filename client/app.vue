@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <div id="cover"></div>
+         {{count}}
         <Header></Header>
+       
         <!-- <router-link to="/app">app</router-link>
         <router-link to="/login">login</router-link> -->
         <router-link :to="{name:'app'}">app</router-link>
@@ -25,8 +27,17 @@ export default {
 
     }
   },
+  computed:{
+    count(){
+        return this.$store.state.count
+    }
+  },
   mounted(){
-  
+    let i = 0
+    setInterval(()=>{
+        i++
+        this.$store.commit('updatedCount',i)
+    },1000)
   },
   components: {
     Header,
