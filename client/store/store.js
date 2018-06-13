@@ -7,12 +7,58 @@ import actions from './actions/actions'
 const isDev = process.env.NODE_ENV === 'development'
 
 export default ()=>{
-    return new Vuex.Store({
+    const store =  new Vuex.Store({
         strict:isDev,
         state:defaultState,
         mutations,
         getters,
-        actions
+        actions,
+        modules:{
+            a:{
+                namespaced:true,//命名空间
+                state:{
+                    text:'module a text',
+                    firstName:'Li',
+                    lastName:"xiaofeng"
+                },
+                getters:{
+                    fullName:(state)=>state.firstName + state.lastName,
+                    all:(state,getters,rootState)=>state.text + rootState.b.text
+                },
+                mutations:{
+                    updateText(state,text){//这里的state是指a模块里面的state
+                        state.text = text
+                    }
+                }
+            },
+            b:{
+                state:{
+                    text:'module b text'
+                }
+            }
+        }
     })
+    if (module.hot) {
+        module.hot.accept([
+          './state/state',
+          './mutations/mutations',
+          './actions/actions',
+          './getters/getters'
+        ], () => {
+          const newState = require('./state/state').default
+          const newMutations = require('./mutations/mutations').default
+          const newActions = require('./actions/actions').default
+          const newGetters = require('./getters/getters').default
+    
+          store.hotUpdate({
+            state: newState,
+            mutations: newMutations,
+            getters: newGetters,
+            actions: newActions
+          })
+        })
+      }
+    
+      return store
 }
 

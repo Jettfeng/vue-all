@@ -4,6 +4,9 @@
          {{count}}
         <Header></Header>
         {{fullName}}
+        <p>{{textA}}</p>
+        <p>命名空间的fullName:{{fullName2}}</p>
+        <p>命名空间中使用a模块的state和b模块的state: {{all}}</p>
         <!-- <router-link to="/app">app</router-link>
         <router-link to="/login">login</router-link> -->
         <router-link :to="{name:'app'}">app</router-link>
@@ -29,6 +32,9 @@ export default {
     }
   },
   computed:{
+    // textA(){
+    //   return this.$store.state.b.text
+    // },
     // 方法一
     // ...mapState(['count']),
     // 方法二
@@ -37,14 +43,20 @@ export default {
     // }),
     // 方法三
      ...mapState({
-      count:(state)=>state.count+'a'
+      count:(state)=>state.count+'a',
+      textA:(state)=>state.a.text
     }),
     // 方法四
     // count(){
     //     return this.$store.state.count
     // },
 
-    ...mapGetters(['fullName']),
+    // ...mapGetters(['fullName']),
+    ...mapGetters({
+       'fullName':'fullName',
+       'fullName2':'a/fullName',
+       'all':'a/all'
+    }),
     // fullName(){
     //   return this.$store.getters.fullName
     // }
@@ -58,9 +70,14 @@ export default {
     // actions改变count
     // this.$store.dispatch('updatedCountAsync',{num:100,time:1000})
     this.updatedCountAsync({num:100,time:3000})//使用mapActions
+    setTimeout(()=>{
+      // this.updateText('module a text has been changed')
+       this['a/updateText']('module a text has been changed')
+    },2000)
   },
   methods:{
-    ...mapMutations(['updatedCount']),
+   // ...mapMutations(['updatedCount','updateText']),//vuex没分模块的情况
+   ...mapMutations(['updatedCount','a/updateText']),//分模块，a模块下的mutations里面的updateText方法
     ...mapActions(['updatedCountAsync'])
   },
   components: {
